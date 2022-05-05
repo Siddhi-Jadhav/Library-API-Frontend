@@ -26,6 +26,7 @@ export const signin = async (email, password) => {
       password,
     })
     result = result.data
+    console.log(result)
   } catch (ex) {
     console.log(ex)
   }
