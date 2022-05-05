@@ -1,7 +1,5 @@
-import { useNavigate } from "react-router-dom"
 const Book = (props) => {
   const { title, category, author, quantity } = props
-  const navigate = useNavigate()
   return (
     <div className="card" style={{width: '25rem', display:'inline-block', margin:'20px'}}>
     <div className="card-body">
