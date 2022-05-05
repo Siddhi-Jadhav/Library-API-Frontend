@@ -15,3 +15,13 @@ code {
 .header {
   text-align: center;
 }
+
+.link {
+  text-decoration: none;
+  color: black;
+}
+
+.link:hover {
+  text-decoration: none;
+  color: white;
+}
