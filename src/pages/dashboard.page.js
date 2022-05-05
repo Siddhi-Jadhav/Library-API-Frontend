@@ -38,7 +38,7 @@ return (
       </MenuButton>
       <MenuList>
         <MenuItem onSelect ={() => alert('Redirecting to your Profile')}><Link to="/profile" className='link'>My Profile</Link></MenuItem>
-        <MenuItem onSelect={() => alert('Redirecting to create book page')}><Link to="/blog-create" className='link'>Create Blog</Link></MenuItem>
+        <MenuItem onSelect={() => alert('Redirecting to create book page')}><Link to="/book-create" className='link'>Create Book</Link></MenuItem>
         <MenuItem onSelect={() => alert('You will be logged out')} onClick={logout}>Logout</MenuItem>
       </MenuList> 
     </Menu>
