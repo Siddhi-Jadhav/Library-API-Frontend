@@ -40,7 +40,7 @@ return (
 <div>
   <div>
     <Menu>
-      <MenuButton style={{ alignItems:"center" }}>
+      <MenuButton style={{ alignItems:"center" }} className="menu">
         Dashboard
       </MenuButton>
       <MenuList>
@@ -49,7 +49,7 @@ return (
         <MenuItem onSelect={() => alert('You will be logged out')} onClick={logout}>Logout</MenuItem>
       </MenuList> 
     </Menu>
-    <h1 className="header"> Books List </h1>
+    <h1 className="header"> Books </h1>
   </div>
     {books.map((book) => {
       const {bookId, title, category} = book
