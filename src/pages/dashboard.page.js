@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import Book from '../component/book.component'
 import { getBooks } from '../service/book.service'
 import { Menu, MenuItem, MenuButton, MenuList } from '@reach/menu-button'
@@ -28,6 +28,18 @@ const DashboardPage = (props) => {
     navigate('/')
   }
 
+  const createBook = async () => {
+    const result = await createBook(props)
+
+    if(result) {
+      navigate('/create-book');
+    }
+  }
+
+  const profile = async () => {
+    navigate('/profile');
+  }
+
 return (
   
 <div>
@@ -37,8 +49,8 @@ return (
         Dashboard
       </MenuButton>
       <MenuList>
-        <MenuItem onSelect ={() => alert('Redirecting to your Profile')}><Link to="/profile" className='link'>My Profile</Link></MenuItem>
-        <MenuItem onSelect={() => alert('Redirecting to create book page')}><Link to="/book-create" className='link'>Create Book</Link></MenuItem>
+        <MenuItem onSelect ={() => alert('Redirecting to your Profile')} onClick={profile}>My Profile</MenuItem>
+        <MenuItem onSelect={() => alert('Redirecting to create book page')} onClick={createBook}>Create Book</MenuItem>
         <MenuItem onSelect={() => alert('You will be logged out')} onClick={logout}>Logout</MenuItem>
       </MenuList> 
     </Menu>
