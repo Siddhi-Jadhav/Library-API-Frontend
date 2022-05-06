@@ -15,7 +15,6 @@ const DashboardPage = (props) => {
   const loadBooks = async() => {
     const result = await getBooks()
     if (result) {
-      console.log(result)
       setBooks(result)
     }
   }
@@ -29,11 +28,7 @@ const DashboardPage = (props) => {
   }
 
   const createBook = async () => {
-    const result = await createBook(props)
-
-    if(result) {
       navigate('/create-book');
-    }
   }
 
   const profile = async () => {

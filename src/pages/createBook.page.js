@@ -7,7 +7,7 @@ const CreateBookPage = (props) => {
   const [title, setTitle] = useState('')
   const [category, setCategory] = useState('')
   const [author, setAuthor] = useState('')
-    const[quantity, setQuantity]= useState(0)
+  const [quantity, setQuantity]= useState(0)
 
   const navigate = useNavigate()
 
@@ -19,13 +19,13 @@ const CreateBookPage = (props) => {
     } else if (author.length === 0) {
         alert('set category')
     } else if (quantity.length === 0) {
-        alert('set category')
+        alert('set quantity')
     } else {
       const result = await createBook(title, category, author, quantity)
       if (result) {
         navigate('/dashboard')
       } else {
-        alert('something went wrong')
+        alert('You are not admin')
       }
     }
   }
