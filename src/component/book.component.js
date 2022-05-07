@@ -1,5 +1,4 @@
 import { useNavigate } from 'react-router-dom'
-import { deleteBook } from '../service/book.service'
 import { Menu, MenuItem, MenuButton, MenuList } from '@reach/menu-button'
 import "@reach/menu-button/styles.css"
 const Book = (props) => {

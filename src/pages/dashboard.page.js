@@ -2,8 +2,6 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Book from '../component/book.component'
 import { getBooks } from '../service/book.service'
-import { Menu, MenuItem, MenuButton, MenuList } from '@reach/menu-button'
-import "@reach/menu-button/styles.css"
 
 const DashboardPage = (props) => {
   const[books, setBooks] =  useState([])
@@ -30,25 +28,13 @@ const DashboardPage = (props) => {
       navigate('/create-book');
   }
 
-  const profile = async () => {
-    navigate('/profile');
-  }
-
 return (
   
 <div>
   <div>
-    <Menu>
-      <MenuButton style={{ alignItems:"center" }} className="menu">
-        Dashboard
-      </MenuButton>
-      <MenuList>
-        <MenuItem onSelect ={() => alert('Redirecting to your Profile')} onClick={profile}>My Profile</MenuItem>
-        <MenuItem onSelect={() => alert('Redirecting to create book page')} onClick={createBook}>Create Book</MenuItem>
-        <MenuItem onSelect={() => alert('You will be logged out')} onClick={logout}>Logout</MenuItem>
-      </MenuList> 
-    </Menu>
-    <h1 className="header"> Books </h1>
+    <button style={{float:"left"}} className="btn btn-success" onClick={createBook}>create new book</button>
+    <button style={{float:"right"}} className="btn btn-warning" onClick={logout}>logout</button>
+    <h1 className="header"> Book list </h1>
   </div>
     {books.map((book) => {
       const {bookId, title, category, author, quantity} = book
