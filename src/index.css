@@ -42,3 +42,8 @@ code {
   border: none;
   text-shadow: 2px 2px 5px rgb(0, 0, 0);
 }
+
+.book-table {
+  margin: auto;
+  border: solid 1px black;
+}

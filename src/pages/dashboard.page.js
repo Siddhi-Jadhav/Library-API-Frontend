@@ -51,8 +51,8 @@ return (
     <h1 className="header"> Books </h1>
   </div>
     {books.map((book) => {
-      const {bookId, title, category} = book
-      return <Book bookId={bookId} title={title} category={category} />
+      const {bookId, title, category, author, quantity} = book
+      return <Book bookId={bookId} title={title} category={category} author={author} quantity={quantity} />
     })}
   </div>
   )

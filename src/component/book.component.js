@@ -1,18 +1,12 @@
 import { useNavigate } from 'react-router-dom'
 import { deleteBook } from '../service/book.service'
+import { Menu, MenuItem, MenuButton, MenuList } from '@reach/menu-button'
+import "@reach/menu-button/styles.css"
 const Book = (props) => {
-  const { id, title, category, author, quantity } = props
+  const { bookId, title, category, author, quantity } = props
   const navigate = useNavigate()
 
   const onDeleteBook = async () => {
-    const result = await deleteBook(id)
-    console.log(result)
-    if (result) {
-      console.log(`Blog is deleted`)
-      navigate('/dashboard')
-    } else {
-      alert('something went wrong')
-    }
   }
 
   const onUpdateBook = async()=>{
@@ -20,16 +14,49 @@ const Book = (props) => {
   }
 
   return (
-    <div className="card" style={{width: '12rem',height: '10rem' , display:'inline-block', margin:'20px'}}>
-      <div className="card-body">
-      <h5 className = "card-title"> {title}</h5>
-      <p className="card-text">{category}</p>
-      <p className="card-text">{author}</p>
-      <p className="card-text">{quantity}</p>
-      <button onClick={onDeleteBook} className="btn btn-danger">Delete</button>
-      <button onClick={onUpdateBook} className="btn btn-success" style={{ marginLeft: '15px' }}>Edit</button>
-      </div>
+    <div className='book-table'>
+    <table>
+      <tr>
+        <td>
+          {bookId}
+        </td>
+        <td>
+          {title}
+        </td>
+        <td>
+          {category}
+        </td>
+        <td>
+          {author}
+        </td>
+        <td>
+          {quantity}
+        </td>
+        <td>
+          <Menu>
+            <MenuButton style={{ alignItems:"center" }}>
+              Operations
+            </MenuButton>
+            <MenuList>
+              <MenuItem onSelect ={() => alert('Redirecting to your Profile')} onClick={onDeleteBook}>Delete book</MenuItem>
+              <MenuItem onSelect={() => alert('Redirecting to create book page')} onClick={onUpdateBook}>Edit</MenuItem>
+            </MenuList> 
+          </Menu>
+        </td>
+      </tr>
+    </table>
     </div>
+    
+    // <div className="card" style={{width: '14rem',height: '15rem' , display:'inline-block', margin:'20px'}}>
+    //   <div className="card-body">
+    //   <h5 className = "card-title"> {title}</h5>
+    //   <p className="card-text">{category}</p>
+    //   <p className="card-text">{author}</p>
+    //   <p className="card-text">{quantity}</p>
+    //   <button onClick={onDeleteBook} className="btn btn-danger">Delete</button>
+    //   <button onClick={onUpdateBook} className="btn btn-success" style={{ marginLeft: '15px' }}>Edit</button>
+    //   </div>
+    // </div>
   )
 }
 
