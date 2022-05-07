@@ -19,7 +19,6 @@ const DashboardPage = (props) => {
     }
   }
 
-
   const navigate = useNavigate()
   const logout = () => {
     sessionStorage.removeItem('token')

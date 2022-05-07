@@ -19,7 +19,7 @@ const SignupPage = (props) => {
     } else {
       const result = await signup(username, email, password)
       if (result) {
-        // go to signin
+        alert('You have registered successfully')
         navigate('/')
       }
     }

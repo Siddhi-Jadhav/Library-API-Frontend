@@ -67,3 +67,31 @@ export const deleteBook = async(id) => {
 
   return response
 }
+
+export const updateBook = async (id, title, category, author, quantity) => {
+  const url = settings.server + `/book/${id}`
+  const token = sessionStorage['token']
+  let response
+  try {
+    response = await axios.post(
+      url,
+      {
+        id,
+        title, 
+        category, 
+        author, 
+        quantity
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    )
+    if(response.headers.Authorization)
+    response = response.data
+  } catch (ex) {
+    console.log(ex)
+  }
+  return response
+}

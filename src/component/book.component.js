@@ -21,15 +21,15 @@ const Book = (props) => {
 
   return (
     <div className="card" style={{width: '12rem',height: '10rem' , display:'inline-block', margin:'20px'}}>
-    <div className="card-body">
-    <h5 className = "card-title"> {title}</h5>
-    <p className="card-text">{category}</p>
-    <p className="card-text">{author}</p>
-    <p className="card-text">{quantity}</p>
-    <button onClick={onDeleteBook} className="btn btn-danger">Delete</button>
-    <button onClick={onUpdateBook} className="btn btn-success" style={{ marginLeft: '15px' }}>Edit</button>
+      <div className="card-body">
+      <h5 className = "card-title"> {title}</h5>
+      <p className="card-text">{category}</p>
+      <p className="card-text">{author}</p>
+      <p className="card-text">{quantity}</p>
+      <button onClick={onDeleteBook} className="btn btn-danger">Delete</button>
+      <button onClick={onUpdateBook} className="btn btn-success" style={{ marginLeft: '15px' }}>Edit</button>
+      </div>
     </div>
-  </div>
   )
 }
 
