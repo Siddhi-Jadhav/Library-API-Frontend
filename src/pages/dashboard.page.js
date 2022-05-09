@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import Book from '../component/book.component'
 import { getBooks } from '../service/book.service'
+import { Menu, MenuItem, MenuButton, MenuList } from '@reach/menu-button'
+import "@reach/menu-button/styles.css"
+import { deleteBook } from '../service/book.service'
+
 
 const DashboardPage = (props) => {
   const[books, setBooks] =  useState([])
@@ -28,6 +31,16 @@ const DashboardPage = (props) => {
       navigate('/create-book');
   }
 
+  const onDeleteBook = async (bookId) => {
+    const result = await deleteBook(bookId)
+    if(result)
+    alert('Book is deleted')
+}
+
+const onUpdateBook = async()=>{
+  navigate('/update-book/')
+}
+
 return (
   
 <div>
@@ -37,12 +50,45 @@ return (
   </div>
   <div>
     <br></br>
-    <h1 className='header'>Booklist</h1>
+    <h2 className='header'>List of Books</h2>
   </div>
-    {books.map((book) => {
-      const {bookId, title, category, author, quantity} = book
-      return <Book bookId={bookId} title={title} category={category} author={author} quantity={quantity} />
+  <div className='book-table'>
+  <table style={{border:'2px solid'}}>
+    <thead>
+      <tr style={{border:'1px solid'}}>
+      <th>Id</th>
+      <th>Title</th>
+      <th>Category</th>
+      <th>Author</th>
+      <th>Operations</th>
+      </tr>
+    </thead>
+    <tbody>
+      {books.map((book) => {
+      const {bookId, title, category, author} = book
+      return (
+      <tr>
+      <td>{bookId}</td>
+      <td>{title}</td> 
+      <td>{category}</td> 
+      <td>{author}</td>
+      <td>
+          <Menu>
+            <MenuButton style={{ alignItems:"center" }}>
+              Operations
+            </MenuButton>
+            <MenuList>
+              <MenuItem onSelect ={() => alert('book will be deleted')} onClick={onDeleteBook}>Delete book</MenuItem>
+              <MenuItem onSelect={() => alert('Redirecting to update book page')} onClick={onUpdateBook}>Edit</MenuItem>
+            </MenuList> 
+          </Menu>
+        </td>
+      </tr> 
+      )
     })}
+    </tbody>
+  </table>
+  </div>
   </div>
   )
 }

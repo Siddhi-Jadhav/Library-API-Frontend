@@ -21,21 +21,11 @@ const Book = (props) => {
     <table>
       <tbody>
       <tr>
-        <td>
-          {bookId}
-        </td>
-        <td>
-          {title}
-        </td>
-        <td>
-          {category}
-        </td>
-        <td>
-          {author}
-        </td>
-        <td>
-          {quantity}
-        </td>
+        <td>{bookId}</td>
+        <td>{title}</td>
+        <td>{category}</td>
+        <td>{author}</td>
+        <td>{quantity}</td>
         <td>
           <Menu>
             <MenuButton style={{ alignItems:"center" }}>

@@ -44,7 +44,11 @@ code {
 }
 
 .book-table {
+  text-align: center;
+  align-items: center;
+  display:grid;
   margin: auto;
+  padding: 2px;
   border: solid 1px black;
 }
 
