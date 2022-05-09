@@ -48,7 +48,7 @@ export const createBook = async (title, category, author, quantity) => {
 }
 
 export const deleteBook = async(id) => {
-  const url = settings.server + `/blog/${id}`
+  const url = settings.server + `/book/${id}`
   const token = sessionStorage['token']
   let response
   try {
@@ -60,7 +60,6 @@ export const deleteBook = async(id) => {
       }
     )
     response = response.data
-    //console.log(response)
   } catch (ex) {
     console.log(ex)
   }

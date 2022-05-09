@@ -47,3 +47,7 @@ code {
   margin: auto;
   border: solid 1px black;
 }
+
+button {
+  width: 150px;
+}

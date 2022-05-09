@@ -32,9 +32,12 @@ return (
   
 <div>
   <div>
-    <button style={{float:"left"}} className="btn btn-success" onClick={createBook}>create new book</button>
+    <button style={{float:"left"}} className="btn btn-success" onClick={createBook}>Create new book</button>
     <button style={{float:"right"}} className="btn btn-warning" onClick={logout}>logout</button>
-    <h1 className="header"> Book list </h1>
+  </div>
+  <div>
+    <br></br>
+    <h1 className='header'>Booklist</h1>
   </div>
     {books.map((book) => {
       const {bookId, title, category, author, quantity} = book

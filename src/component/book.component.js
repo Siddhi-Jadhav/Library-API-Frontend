@@ -1,11 +1,15 @@
 import { useNavigate } from 'react-router-dom'
 import { Menu, MenuItem, MenuButton, MenuList } from '@reach/menu-button'
 import "@reach/menu-button/styles.css"
+import { deleteBook } from '../service/book.service'
 const Book = (props) => {
   const { bookId, title, category, author, quantity } = props
   const navigate = useNavigate()
 
-  const onDeleteBook = async () => {
+  const onDeleteBook = async (bookId) => {
+      const result = await deleteBook(bookId)
+      if(result)
+      alert('Book is deleted')
   }
 
   const onUpdateBook = async()=>{
@@ -15,6 +19,7 @@ const Book = (props) => {
   return (
     <div className='book-table'>
     <table>
+      <tbody>
       <tr>
         <td>
           {bookId}
@@ -37,12 +42,13 @@ const Book = (props) => {
               Operations
             </MenuButton>
             <MenuList>
-              <MenuItem onSelect ={() => alert('Redirecting to your Profile')} onClick={onDeleteBook}>Delete book</MenuItem>
-              <MenuItem onSelect={() => alert('Redirecting to create book page')} onClick={onUpdateBook}>Edit</MenuItem>
+              <MenuItem onSelect ={() => alert('book will be deleted')} onClick={onDeleteBook}>Delete book</MenuItem>
+              <MenuItem onSelect={() => alert('Redirecting to update book page')} onClick={onUpdateBook}>Edit</MenuItem>
             </MenuList> 
           </Menu>
         </td>
       </tr>
+      </tbody>
     </table>
     </div>
     

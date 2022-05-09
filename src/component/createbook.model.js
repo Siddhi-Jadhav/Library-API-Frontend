@@ -2,8 +2,7 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { createBook } from '../service/book.service'
 
-const CreateBookPage = (props) => {
-  // state
+const Modal = (props) => {
   const [title, setTitle] = useState('')
   const [category, setCategory] = useState('')
   const [author, setAuthor] = useState('')
@@ -93,4 +92,4 @@ const CreateBookPage = (props) => {
   )
 }
 
-export default CreateBookPage
+export default Modal
