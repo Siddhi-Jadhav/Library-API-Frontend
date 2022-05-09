@@ -73,7 +73,9 @@ return (
       <td>{category}</td> 
       <td>{author}</td>
       <td>
-          <Menu>
+        <input type='button' className='button' value='Edit' onClick={onUpdateBook}/>
+        <input type='button' className='button' value='Delete' onClick={onDeleteBook}/>
+          {/* <Menu>
             <MenuButton style={{ alignItems:"center" }}>
               Operations
             </MenuButton>
@@ -81,7 +83,7 @@ return (
               <MenuItem onSelect ={() => alert('book will be deleted')} onClick={onDeleteBook}>Delete book</MenuItem>
               <MenuItem onSelect={() => alert('Redirecting to update book page')} onClick={onUpdateBook}>Edit</MenuItem>
             </MenuList> 
-          </Menu>
+          </Menu> */}
         </td>
       </tr> 
       )
