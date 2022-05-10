@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom'
 import { updateBook } from '../service/book.service'
 
 const UpdateBookPage = (props) => {
-  const {id} =props
   const [title, setTitle] = useState('')
   const [category, setCategory] = useState('')
   const [author, setAuthor] = useState('')
@@ -11,7 +10,7 @@ const UpdateBookPage = (props) => {
 
   const navigate = useNavigate()
 
-  const onUpdateBook = async () => {
+  const onUpdateBook = async (bookId) => {
     if (title.length === 0) {
       alert('set title')
     } else if (category.length === 0) {
@@ -21,7 +20,7 @@ const UpdateBookPage = (props) => {
     } else if (quantity.length === 0) {
         alert('set quantity')
     } else {
-      const result = await updateBook(id, title, category, author, quantity)
+      const result = await updateBook(bookId, title, category, author, quantity)
       if (result) {
         navigate('/dashboard')
       } else {

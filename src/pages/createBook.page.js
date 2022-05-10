@@ -51,7 +51,6 @@ const CreateBookPage = (props) => {
             onChange={(e) => {
               setCategory(e.target.value)
             }}
-            rows={5}
             type="text"
             className="form-control"
           />{' '}

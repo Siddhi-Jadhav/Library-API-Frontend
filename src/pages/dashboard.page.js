@@ -34,13 +34,18 @@ const DashboardPage = (props) => {
   const onDeleteBook = async (bookId) => {
     const result = await deleteBook(bookId)
     if(result)
-    alert('Book is deleted')
-}
+    {
+      window.location.reload();
+      alert('Book is deleted');
+    }
+    else {
+      alert('something went wrong');
+    }
+  }
 
-const onUpdateBook = async(bookId)=>{
-  console.log(bookId);
-  navigate('/update-book/')
-}
+  const onUpdateBook = async(bookId)=>{
+    navigate('/update-book/'+ bookId)
+  }
 
 return (
   
@@ -74,8 +79,8 @@ return (
       <td>{category}</td> 
       <td>{author}</td>
       <td>
-        <input type='button' className='button' value='Edit' onClick={onUpdateBook}/>
-        <input type='button' className='button' value='Delete' onClick={onDeleteBook}/>
+        <input type='button' className='button' value='Edit' onClick={()=>onUpdateBook(bookId)}/>
+        <input type='button' className='button' value='Delete' onClick={()=>onDeleteBook(bookId)}/>
           {/* <Menu>
             <MenuButton style={{ alignItems:"center" }}>
               Operations
