@@ -39,7 +39,7 @@ const DashboardPage = (props) => {
       alert('Book is deleted');
     }
     else {
-      alert('something went wrong');
+      alert('You are not an admin');
     }
   }
 
