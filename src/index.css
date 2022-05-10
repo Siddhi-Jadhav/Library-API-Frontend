@@ -15,3 +15,48 @@ code {
 .header {
   text-align: center;
 }
+
+.link {
+  text-decoration: none;
+  color: black;
+}
+
+.link:hover {
+  text-decoration: none;
+  color: white;
+}
+
+.card {
+  background: linear-gradient(110deg, gold 20.69%, #c6d403 50.19%,#8d8082 79.69%) ;
+  box-shadow: 5px 5px 10px rgb(0, 0, 0);
+}
+
+.btn {
+  box-shadow: 5px 5px 10px rgb(0, 0, 0);
+} 
+
+.menu {
+  background-color: grey;
+  box-shadow: 2px 2px 5px rgb(0, 0, 0);
+  color: white;
+  border: none;
+  text-shadow: 2px 2px 5px rgb(0, 0, 0);
+}
+
+.book-table {
+  text-align: center;
+  align-items: center;
+  display:grid;
+  margin: auto;
+  padding: 2px;
+  border: solid 1px black;
+}
+
+button {
+  width: 150px;
+}
+
+.button {
+  width: 70px;
+  margin-left: 5px;
+}

@@ -15,6 +15,9 @@ const SignInPage = (props) => {
     } else {
       const result = await signin(email, password)
       if (result) {
+        const { token } = result
+        sessionStorage['token'] = token
+        sessionStorage['email'] = email
         console.log(result);
         navigate('/dashboard')
       } else {

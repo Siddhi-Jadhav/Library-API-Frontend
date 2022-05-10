@@ -1,9 +1,8 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { createBook } from '../service/book.service'
+import { updateBook } from '../service/book.service'
 
-const CreateBookPage = (props) => {
-  // state
+const UpdateBookPage = (props) => {
   const [title, setTitle] = useState('')
   const [category, setCategory] = useState('')
   const [author, setAuthor] = useState('')
@@ -11,7 +10,7 @@ const CreateBookPage = (props) => {
 
   const navigate = useNavigate()
 
-  const onCreateBook = async () => {
+  const onUpdateBook = async (bookId) => {
     if (title.length === 0) {
       alert('set title')
     } else if (category.length === 0) {
@@ -21,18 +20,18 @@ const CreateBookPage = (props) => {
     } else if (quantity.length === 0) {
         alert('set quantity')
     } else {
-      const result = await createBook(title, category, author, quantity)
+      const result = await updateBook(bookId, title, category, author, quantity)
       if (result) {
         navigate('/dashboard')
       } else {
-        alert('You are not admin')
+        alert('Something went wrong')
       }
     }
   }
 
   return (
     <div>
-      <h1 className="header">Create Book</h1>
+      <h1 className="header">Update Book</h1>
       <div className="form">
         <div className="mb-3">
           <label className="form-label">Title</label>
@@ -51,6 +50,7 @@ const CreateBookPage = (props) => {
             onChange={(e) => {
               setCategory(e.target.value)
             }}
+            rows={5}
             type="text"
             className="form-control"
           />{' '}
@@ -80,10 +80,10 @@ const CreateBookPage = (props) => {
         
 
         <div className="mb-3">
-          <button onClick={onCreateBook} className="btn btn-success">Save</button>
+          <button onClick={onUpdateBook} className="btn btn-success">Save</button>
           <Link
             to="/dashboard"
-            style={{ marginLeft: '15px' }}
+            style={{ marginLeft: '10px' }}
             className="btn btn-danger">Cancel
           </Link>
         </div>
@@ -92,4 +92,4 @@ const CreateBookPage = (props) => {
   )
 }
 
-export default CreateBookPage
+export default UpdateBookPage
