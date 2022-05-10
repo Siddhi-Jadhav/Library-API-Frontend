@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getBooks } from '../service/book.service'
-import { Menu, MenuItem, MenuButton, MenuList } from '@reach/menu-button'
+//import { Menu, MenuItem, MenuButton, MenuList } from '@reach/menu-button'
 import "@reach/menu-button/styles.css"
 import { deleteBook } from '../service/book.service'
 
@@ -37,7 +37,8 @@ const DashboardPage = (props) => {
     alert('Book is deleted')
 }
 
-const onUpdateBook = async()=>{
+const onUpdateBook = async(bookId)=>{
+  console.log(bookId);
   navigate('/update-book/')
 }
 
