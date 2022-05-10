@@ -4,7 +4,7 @@ import { getBooks } from '../service/book.service'
 //import { Menu, MenuItem, MenuButton, MenuList } from '@reach/menu-button'
 import "@reach/menu-button/styles.css"
 import { deleteBook } from '../service/book.service'
-
+import { issuedBook } from '../service/book.service'
 
 const DashboardPage = (props) => {
   const[books, setBooks] =  useState([])
@@ -44,7 +44,18 @@ const DashboardPage = (props) => {
   }
 
   const onUpdateBook = async(bookId)=>{
-    navigate('/update-book/'+ bookId)
+    console.log(bookId)
+    navigate('/update-book/', bookId)
+  }
+
+  const onIssuedBook = async(bookId)=> {
+    const result = await issuedBook(bookId)
+    if(result) {
+      alert('book is issued to user')
+    }
+    else {
+      alert('something went wrong')
+    }
   }
 
 return (
@@ -66,21 +77,24 @@ return (
       <th>Title</th>
       <th>Category</th>
       <th>Author</th>
+      <th>Quantity</th>
       <th>Operations</th>
       </tr>
     </thead>
     <tbody>
       {books.map((book) => {
-      const {bookId, title, category, author} = book
+      const {bookId, title, category, author, quantity} = book
       return (
       <tr>
       <td>{bookId}</td>
       <td>{title}</td> 
       <td>{category}</td> 
       <td>{author}</td>
+      <td>{quantity}</td>
       <td>
         <input type='button' className='button' value='Edit' onClick={()=>onUpdateBook(bookId)}/>
         <input type='button' className='button' value='Delete' onClick={()=>onDeleteBook(bookId)}/>
+        <input type='button' className='button' value='Issue' onClick={()=>onIssuedBook(bookId)}/>
           {/* <Menu>
             <MenuButton style={{ alignItems:"center" }}>
               Operations

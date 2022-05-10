@@ -63,7 +63,6 @@ export const deleteBook = async(id) => {
   } catch (ex) {
     console.log(ex)
   }
-
   return response
 }
 
@@ -92,4 +91,7 @@ export const updateBook = async (bookId, title, category, author, quantity) => {
     console.log(ex)
   }
   return response
+}
+
+export const issuedBook = async (bookId) => {
 }
